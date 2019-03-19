@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>webpack 优化方案 | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.9">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../WebOpt/tree-shaking.html" />
+    
+    
+    <link rel="prev" href="../FuncPro/functor.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.1"
+        data-chapter-title="webpack 优化方案"
+        data-filepath="WebOpt/webpack.md"
+        data-basepath=".."
+        data-revision="Tue Mar 19 2019 13:46:48 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="GIT/READ.html">
+            
+            <span><b>1.</b> GIT</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="GIT/configAccount.html">
+            
+                
+                    <a href="../GIT/configAccount.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        配置账号
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="GIT/generateKey.html">
+            
+                
+                    <a href="../GIT/generateKey.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        生成秘钥
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> 函数式编程</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="FuncPro/introduce.html">
+            
+                
+                    <a href="../FuncPro/introduce.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        命令式和声明式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="FuncPro/curry.html">
+            
+                
+                    <a href="../FuncPro/curry.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        科里化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="FuncPro/pureFunc.html">
+            
+                
+                    <a href="../FuncPro/pureFunc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        纯函数
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="FuncPro/compose.html">
+            
+                
+                    <a href="../FuncPro/compose.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        组合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="FuncPro/functor.html">
+            
+                
+                    <a href="../FuncPro/functor.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        函子
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 网络协议</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" >
+            
+            <span><b>3.1.</b> https原理</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" >
+            
+            <span><b>4.</b> 性能优化</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1" data-path="WebOpt/webpack.html">
+            
+                
+                    <a href="../WebOpt/webpack.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        webpack 优化方案
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="WebOpt/tree-shaking.html">
+            
+                
+                    <a href="../WebOpt/tree-shaking.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.1.</b>
+                        
+                        移除无用代码
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+            <span><b>4.2.</b> Chrome Devtools</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" >
+            
+            <span><b>4.2.1.</b> 面板初识</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="WebOpt/real-time-performance-monitoring.html">
+            
+                
+                    <a href="../WebOpt/real-time-performance-monitoring.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.2.</b>
+                        
+                        实时性能监控
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="webpack-&#x4F18;&#x5316;">webpack &#x4F18;&#x5316;</h1>
+<h5 id="&#x6700;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;">&#x6700;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;</h5>
+<pre><code>// webpack.config.js
+module.exports = {
+  entry: {
+    app: &apos;./src/app.js&apos;
+  },
+
+  output: {
+    path: path.join(__dirname, &apos;dist&apos;),
+    filename: &apos;[name].[hash].js&apos;
+  }
+};
+</code></pre><h5 id="&#x5E38;&#x7528;-loader">&#x5E38;&#x7528; loader</h5>
+<pre><code>rules: [
+    {
+      test: /\.js$/,
+      loader: &apos;babel-loader&apos;,
+      include: [resolve(&apos;src&apos;), resolve(&apos;test&apos;), resolve(&apos;node_modules/webpack-dev-server/client&apos;)]
+    },
+    {
+      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+      loader: &apos;url-loader&apos;,
+      options: {
+        limit: 10000,
+        name: utils.assetsPath(&apos;media/[name].[hash:7].[ext]&apos;)
+      }
+    },
+    {
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      loader: &apos;url-loader&apos;,
+      options: {
+        limit: 10000,
+        name: utils.assetsPath(&apos;fonts/[name].[hash:7].[ext]&apos;)
+      }
+    }
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: &apos;url-loader&apos;,
+      options: {
+        limit: 10000,
+        name: utils.assetsPath(&apos;img/[name].[hash:7].[ext]&apos;)
+      }
+    },
+  ]
+</code></pre><h5 id="happypack-&#x591A;&#x8FDB;&#x7A0B;&#x7F16;&#x8F91;">happypack &#x591A;&#x8FDB;&#x7A0B;&#x7F16;&#x8F91;</h5>
+<pre><code>// webpack.conofig.js
+
+const HappyPack = require(&apos;happypack&apos;)
+// &#x624B;&#x52A8;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;&#x6C60;
+const happyThreadPool =  HappyPack.ThreadPool({ size: os.cpus().length })
+
+module.exports = {
+  module: {
+    rules: [
+      ...
+      {
+        test: /\.js$/,
+        // &#x95EE;&#x53F7;&#x540E;&#x9762;&#x7684;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x4E86;&#x5904;&#x7406;&#x8FD9;&#x7C7B;&#x6587;&#x4EF6;&#x7684;HappyPack&#x5B9E;&#x4F8B;&#x7684;&#x540D;&#x5B57;
+        loader: &apos;happypack/loader?id=happyBabel&apos;,
+        ...
+      },
+    ],
+  },
+  plugins: [
+    ...
+    new HappyPack({
+      // &#x8FD9;&#x4E2A;HappyPack&#x7684;&#x201C;&#x540D;&#x5B57;&#x201D;&#x5C31;&#x53EB;&#x505A;happyBabel&#xFF0C;&#x548C;&#x697C;&#x4E0A;&#x7684;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x9065;&#x76F8;&#x547C;&#x5E94;
+      id: &apos;happyBabel&apos;,
+      // &#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#x6C60;
+      threadPool: happyThreadPool,
+      loaders: [&apos;babel-loader?cacheDirectory&apos;]
+    })
+  ],
+}
+</code></pre><h5 id="dllplugin-&#x4F18;&#x5316;&#x516C;&#x5171;&#x8D44;&#x6E90;&#x5E93;">DllPlugin &#x4F18;&#x5316;&#x516C;&#x5171;&#x8D44;&#x6E90;&#x5E93;</h5>
+<pre><code>// webpack.config.vendor.js
+
+const webpack = require(&apos;webpack&apos;);
+const path = require(&apos;path&apos;);
+
+module.exports = {
+  entry: {
+    // &#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x4E2D;&#x9700;&#x8981;&#x88AB;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#x7684;&#x516C;&#x5171;&#x8D44;&#x6E90;&#x5E93;
+    vendor: [path.join(__dirname, &apos;src&apos;, &apos;vendor.js&apos;)],
+  },
+
+  output: {
+    path: path.join(__dirname, &apos;dist-[hash]&apos;),
+    filename: &apos;[name].js&apos;,
+    library: &apos;[name]&apos;,
+  },
+
+  plugins: [
+    new webpack.DllPlugin({
+      path: path.join(__dirname, &apos;dll&apos;, &apos;[name]-manifest.json&apos;),
+      filename: &apos;[name].js&apos;,
+      name: &apos;[name]&apos;,
+    }),
+  ]
+};
+//--
+
+// &#x7EC8;&#x7AEF;&#x6267;&#x884C;
+webpack -p --progress --config webpack.config.vendor.js
+// --
+
+// webpack.config.js
+const manifest = require(&apos;./dll/vendor-manifest.json&apos;);
+
+// ... &#x5176;&#x4ED6;&#x5B8C;&#x7F8E;&#x7684;&#x914D;&#x7F6E;
+
+plugins: [
+  new webpack.DllReferencePlugin({
+    manifest,
+  }),
+]
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../FuncPro/functor.html" class="navigation navigation-prev " aria-label="Previous page: 函子"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../WebOpt/tree-shaking.html" class="navigation navigation-next " aria-label="Next page: 移除无用代码"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
