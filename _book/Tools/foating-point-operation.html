@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>实时性能监控 | Introduction</title>
+        <title>浮点数相加 | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.9">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../Tools/type-check.html" />
+    <link rel="next" href="../Tools/load-javascript.html" />
     
     
-    <link rel="prev" href="../WebOpt/tree-shaking.html" />
+    <link rel="prev" href="../Tools/verificationv-identity-card.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="4.2.2"
-        data-chapter-title="实时性能监控"
-        data-filepath="WebOpt/real-time-performance-monitoring.md"
+        data-level="5.4"
+        data-chapter-title="浮点数相加"
+        data-filepath="Tools/foating-point-operation.md"
         data-basepath=".."
         data-revision="Tue Mar 19 2019 15:45:42 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -292,7 +292,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2.2" data-path="WebOpt/real-time-performance-monitoring.html">
+        <li class="chapter " data-level="4.2.2" data-path="WebOpt/real-time-performance-monitoring.html">
             
                 
                     <a href="../WebOpt/real-time-performance-monitoring.html">
@@ -370,7 +370,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="Tools/foating-point-operation.html">
+        <li class="chapter active" data-level="5.4" data-path="Tools/foating-point-operation.html">
             
                 
                     <a href="../Tools/foating-point-operation.html">
@@ -438,22 +438,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5B9E;&#x65F6;&#x76D1;&#x63A7;&#x7F51;&#x9875;&#x8FD0;&#x884C;&#x72B6;&#x6001;">&#x5B9E;&#x65F6;&#x76D1;&#x63A7;&#x7F51;&#x9875;&#x8FD0;&#x884C;&#x72B6;&#x6001;</h1>
-<ol>
-<li>&#x6253;&#x5F00; URL&#xFF1A;&#x201C;chrome://flags/#enable-devtools-experiments&#x201D;</li>
-<li>&#x5C06; &#x201C;Developer Tools experiments&#x201D; &#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x4E3A;&#x201C;&#x542F;&#x7528;&#x201D;</li>
-<li>&#x70B9;&#x51FB; &#x201C;Relaunch now&#x201D; &#x6765;&#x91CD;&#x542F; Chrome</li>
-<li>&#x6253;&#x5F00; Chrome DevTools (&#x5FEB;&#x6377;&#x952E;&#x4E3A; CMD/CTRL + SHIFT + I)</li>
-<li>&#x6253;&#x5F00; DevTools &#x201C;Setting&#x201D; -&gt; &#x201C;Experiments&#x201D; &#x9009;&#x9879;</li>
-<li>&#x70B9;&#x51FB; 6 &#x6B21; SHIFT &#x663E;&#x793A;&#x9690;&#x85CF;&#x7684;&#x9009;&#x9879;</li>
-<li>&#x9009;&#x4E2D; &#x201C;Performance Monitor&#x201D; &#x9009;&#x9879;</li>
-<li>&#x91CD;&#x542F; DevTools (&#x5FEB;&#x6377;&#x952E; CMD/CTRL + SHIFT + I )</li>
-<li>&#x70B9;&#x51FB; &#x201C;Esc&#x201D; &#x6253;&#x5F00;&#x9644;&#x52A0;&#x9762;&#x677F;</li>
-<li>&#x9009;&#x62E9; &#x201C;Performance monitor&#x201D;</li>
-<li>&#x5355;&#x51FB;&#x542F;&#x7528;/&#x7981;&#x7528;</li>
-</ol>
-<p><img src="https://user-gold-cdn.xitu.io/2017/12/18/16069939e9b62c34?imageslim" alt="alt"></p>
-<p><a href="https://juejin.im/post/5a37b2f56fb9a0451e3fe73d" target="_blank">&#x539F;&#x672C;&#x5730;&#x5740;</a><a href="https://juejin.im/post/5a37b2f56fb9a0451e3fe73d" target="_blank">https://juejin.im/post/5a37b2f56fb9a0451e3fe73d</a></p>
+                        <h3 id="&#x6D6E;&#x70B9;&#x6570;&#x76F8;&#x52A0;">&#x6D6E;&#x70B9;&#x6570;&#x76F8;&#x52A0;</h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">num1, num2</span>) </span>{  
+    <span class="hljs-keyword">var</span> decimalLen1 = (num1.toString().split(<span class="hljs-string">&apos;.&apos;</span>)[<span class="hljs-number">1</span>] || <span class="hljs-string">&apos;&apos;</span>).length; 
+    <span class="hljs-keyword">var</span> decimalLen2 = (num2.toString().split(<span class="hljs-string">&apos;.&apos;</span>)[<span class="hljs-number">1</span>] || <span class="hljs-string">&apos;&apos;</span>).length; 
+    <span class="hljs-keyword">var</span> baseNum = <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">10</span>, <span class="hljs-built_in">Math</span>.max(decimalLen1, decimalLen2));  
+    <span class="hljs-keyword">return</span> (num1 * baseNum + num2 * baseNum) / baseNum;
+ }
+ <span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">0.1</span> , <span class="hljs-number">0.2</span>)); <span class="hljs-comment">//0.3</span>
+</code></pre>
 
                     
                     </section>
@@ -464,10 +457,10 @@
         </div>
 
         
-        <a href="../WebOpt/tree-shaking.html" class="navigation navigation-prev " aria-label="Previous page: 移除无用代码"><i class="fa fa-angle-left"></i></a>
+        <a href="../Tools/verificationv-identity-card.html" class="navigation navigation-prev " aria-label="Previous page: 身份证校验"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../Tools/type-check.html" class="navigation navigation-next " aria-label="Next page: js类型检查"><i class="fa fa-angle-right"></i></a>
+        <a href="../Tools/load-javascript.html" class="navigation navigation-next " aria-label="Next page: 动态加载js"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

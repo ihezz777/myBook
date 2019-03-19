@@ -1,6 +1,7 @@
 # Summary
 * [Introduction](README.md)
-* [GIT](GIT/READ.md)
+
+* [GIT]()
 	* [配置账号](GIT/configAccount.md)
 	* [生成秘钥](GIT/generateKey.md)
 * [函数式编程]()	
@@ -19,3 +20,9 @@
 	* [Chrome Devtools]()  
 	    * [面板初识]()
 	    * [实时性能监控](WebOpt/real-time-performance-monitoring.md)
+* [Tools]()
+    * [js类型检查](Tools/type-check.md)
+    * [倒计时纠偏](Tools/countdown.md)
+    * [身份证校验](Tools/verificationv-identity-card.md)
+    * [浮点数相加](Tools/foating-point-operation.md)
+    * [动态加载js](Tools/load-javascript.md)
