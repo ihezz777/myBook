@@ -21,7 +21,6 @@ shout("send in the clowns"); // "SEND IN THE CLOWNS!"
 ##### 常见的组合函数
 
 ```
-
 // redux 版
 const compose = (...fns) => {
   if (fns.length === 0) return arg => arg
