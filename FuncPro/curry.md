@@ -1,4 +1,6 @@
-##### 柯里化是将一个多参数函数转换成多个单参数函数。
+# 柯里化
+
+> 柯里化是将一个多参数函数转换成多个单参数函数。
 
 ```
 // 柯里化之前
@@ -19,7 +21,6 @@ addX(2)(1) // 3
 ```
 
 ##### 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
-
 ```
 const curry = require('lodash').curry;
 
@@ -38,25 +39,10 @@ const filter = curry(function(f, ary) {
 const map = curry(function(f, ary) {
   return ary.map(f);
 });
-```
-
-##### 偏函数
-
-> 一个函数，接受一个多参数的函数且传入部分参数后，返回一个需要更少参数的新函数。
-
-```
-import { curry, partial } from 'lodash'
-
-const add = (x, y, z) => x + y + z
-
-const curriedAdd = curry(add)       // <- 只接受一个函数
-
-const addThree = partial(add, 1, 2) // <- 不仅接受函数，还接受至少一个参数
-curriedAdd(1)(2)              // <- 柯里化每次都返回一个单参函数
 
 ```
 
-##### 常见的科里化函数
+##### 柯里化函数的实现
 
 ```
 // from: https://juejin.im/post/5b70157bf265da28104f52ab
@@ -71,7 +57,6 @@ var curry = function(fn, arr) {
 }
 
 // es6
-
 const curry = (fn, arr = []) => (...args) => (
   arg => arg.length >= fn.length
     ? fn(...arg)
@@ -90,6 +75,29 @@ curried(a)(b, c)(d)
 curried(a)(b)(c, d)
 curried(a, b)(c)(d)
 
+```
+
+###### 场景
+
+```js
+import { curry } from 'lodash'
+const compose = (...fns) => {
+  if (fns.length === 0) return arg => arg
+  if (fns.length === 1) return fns[0]
+
+  return fns.reduce((a, b) => (...args) => a(b(...args)))
+}
+// 模拟场景
+const toUpperCase = function(x) { return x.toUpperCase(); };
+const exclaim = function(x) { return x + '!'; };
+const replace = function (what, replacement, str) {return str.replace(what, replacement);}
+
+const composeFn1 = compose(replace, toUpperCase, exclaim);
+
+const curryReplace = curry(replace)('!')('?');
+const composeFn2 = compose(curryReplace, toUpperCase, exclaim);
+console.log(composeFn1('hello world'));  // 报错
+console.log(composeFn2('hello world'));  // hello world?
 ```
 
 
