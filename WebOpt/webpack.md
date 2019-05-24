@@ -1,6 +1,6 @@
 #  webpack 优化
 
-##### 最简单的配置
+#### 最简单的配置
 
 ```
 // webpack.config.js
@@ -16,7 +16,7 @@ module.exports = {
 };
 ```
 
-##### 常用 loader
+#### 常用 loader
 
 ```
 rules: [
@@ -52,7 +52,7 @@ rules: [
   ]
 ```
 
-##### happypack 多进程编辑
+#### happypack 多进程编辑
 
 ```
 // webpack.conofig.js
@@ -86,7 +86,7 @@ module.exports = {
 }
 ```
 
-##### DllPlugin 优化公共资源库
+#### DllPlugin 优化公共资源库
 
 ```
 // webpack.config.vendor.js

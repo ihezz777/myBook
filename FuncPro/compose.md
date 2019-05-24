@@ -1,4 +1,6 @@
-##### 如果一直值要经过多个函数才能变成另一个值，就可以将多个函数组合成一个函数
+# 组合
+
+#### 如果一直值要经过多个函数才能变成另一个值，就可以将多个函数组合成一个函数
 
 - 函数组合就是将当前函数的返回值作为下一个函数的参带入
 
@@ -16,7 +18,7 @@ var shout = compose(exclaim, toUpperCase);
 shout("send in the clowns"); // "SEND IN THE CLOWNS!"
 ```
 
-##### 无所不能的reduce
+#### 无所不能的reduce
 
 > reduce 接受一个 reducer 函数以及一个初始值，最终返回一个累积值。对于数组的每步迭代，reducer 函数都会被调用，并且向其传入了累积值和当前迭代到的数组元素。
 
@@ -41,11 +43,11 @@ const every = (fn, arr) => arr.length === filter(fn, arr).length
 
 ```
 
-##### 复合函数
+#### 复合函数
 
 > 如果 y 是 w 的函数，w 又是 x 的函数，即 y = f(w), w = g(x)，那么 y 关于 x 的函数 y = f[g(x)] 叫做函数 y = f(w) 和 w = g(x) 的复合函数。其中 w 是中间变量，x 是自变量，y 是函数值。
 
-##### 常见的组合函数
+#### 常见的组合函数
 
 ```javascript
 // redux 版
@@ -77,7 +79,7 @@ const compose = (...args) => {
 
 ```
 
-##### 场景
+#### 场景
 
 ```js
 // 目录|——src

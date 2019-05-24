@@ -20,7 +20,7 @@ function addX(y) {
 addX(2)(1) // 3
 ```
 
-##### 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
+#### 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
 ```
 const curry = require('lodash').curry;
 
@@ -42,7 +42,7 @@ const map = curry(function(f, ary) {
 
 ```
 
-##### 柯里化函数的实现
+#### 柯里化函数的实现
 
 ```
 // from: https://juejin.im/post/5b70157bf265da28104f52ab
@@ -77,7 +77,7 @@ curried(a, b)(c)(d)
 
 ```
 
-###### 场景
+#### 场景
 
 ```js
 import { curry } from 'lodash'
